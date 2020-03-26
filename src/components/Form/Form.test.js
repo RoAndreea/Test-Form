@@ -36,3 +36,9 @@ test("last name input field is empty", () => {
   const initialFieldState = wrapper.state("lastName");
   expect(initialFieldState).toBe("");
 });
+
+test("radio button not clicked ", () => {
+  const wrapper = shallow(<Form />);
+  const initialFieldState = wrapper.state("color");
+  expect(initialFieldState).toBe("");
+});
