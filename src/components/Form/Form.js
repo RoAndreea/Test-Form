@@ -22,10 +22,10 @@ class Form extends React.Component {
 
   render() {
     return (
-      <div className="container">
-        <div className="divForm">
+      <div className="container" data-test="form-component">
+        <div className="divForm" data-test="form">
           <form>
-            <div className="form-element">
+            <div className="form-element" data-test="form-element">
               <label className="labelInput">First name:</label>
               <input
                 type="text"
@@ -36,7 +36,7 @@ class Form extends React.Component {
               ></input>{" "}
               <br></br>
             </div>
-            <div className="form-element">
+            <div className="form-element" data-test="form-element">
               <label className="labelInput">Last name:</label>
               <input
                 type="text"
@@ -48,7 +48,7 @@ class Form extends React.Component {
             </div>
           </form>
         </div>
-        <div>
+        <div data-test="text-area-component">
           <TextArea passState={this.state}></TextArea>
         </div>
       </div>
