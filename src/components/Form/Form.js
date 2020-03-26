@@ -7,7 +7,9 @@ class Form extends React.Component {
     super(props);
     this.state = {
       firstName: "",
-      lastName: ""
+      lastName: "",
+      color: "",
+      checked: false
     };
   }
 
@@ -18,6 +20,12 @@ class Form extends React.Component {
       },
       () => {}
     );
+  };
+
+  handleCheckRadio = event => {
+    this.setState({
+      color: event.target.value
+    });
   };
 
   render() {
@@ -45,6 +53,18 @@ class Form extends React.Component {
                 value={this.state.lastName}
                 onChange={this.handleChange("lastName")}
               ></input>{" "}
+            </div>
+            <label>Choose your favorite color</label>
+            <div className="radio">
+              <label>
+                <input
+                  type="radio"
+                  value="black"
+                  checked={this.state.color === "black"}
+                  onChange={this.handleCheckRadio}
+                />
+                Black
+              </label>
             </div>
           </form>
         </div>

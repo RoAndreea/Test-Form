@@ -12,6 +12,8 @@ class TextArea extends React.Component {
         <h4>{this.props.passState.firstName}</h4>
         <h2>Last Name</h2>
         <h4>{this.props.passState.lastName}</h4>
+        <h2>Color</h2>
+        <h4>{this.props.passState.color}</h4>
       </div>
     );
   }

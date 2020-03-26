@@ -30,3 +30,9 @@ test("first name input field is empty", () => {
   const initialFieldState = wrapper.state("firstName");
   expect(initialFieldState).toBe("");
 });
+
+test("last name input field is empty", () => {
+  const wrapper = shallow(<Form />);
+  const initialFieldState = wrapper.state("lastName");
+  expect(initialFieldState).toBe("");
+});
