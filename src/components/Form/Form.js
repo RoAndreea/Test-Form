@@ -38,28 +38,31 @@ class Form extends React.Component {
               <input
                 type="text"
                 maxLength="32"
-                className="form-control"
+                className="form-control input-first"
                 value={this.state.firstName}
                 onChange={this.handleChange("firstName")}
               ></input>{" "}
               <br></br>
             </div>
-            <div className="form-element" data-test="form-element">
+            <div className="form-elemen l-name" data-test="form-element">
               <label className="labelInput">Last name:</label>
               <input
+                className="form-control input-last"
                 type="text"
+                name="lastname"
                 maxLength="32"
-                className="form-control"
                 value={this.state.lastName}
                 onChange={this.handleChange("lastName")}
               ></input>{" "}
             </div>
             <label>Choose your favorite color</label>
-            <div className="radio">
+            <div className="radio ">
               <label>
                 <input
                   type="radio"
+                  name="color"
                   value="black"
+                  className="input-color"
                   checked={this.state.color === "black"}
                   onChange={this.handleCheckRadio}
                 />

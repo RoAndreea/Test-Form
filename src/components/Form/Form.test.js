@@ -42,3 +42,19 @@ test("radio button not clicked ", () => {
   const initialFieldState = wrapper.state("color");
   expect(initialFieldState).toBe("");
 });
+
+it("change the state after change the input value for the field", () => {
+  const wrapper = shallow(<Form />);
+  wrapper
+    .find(".input-last")
+    .simulate("change", { target: { name: "lastName", value: "Roman" } });
+  expect(wrapper.state("lastName")).toEqual("Roman");
+  wrapper
+    .find(".input-first")
+    .simulate("change", { target: { name: "firstName", value: "Andreea" } });
+  expect(wrapper.state("firstName")).toEqual("Andreea");
+  wrapper
+    .find(".input-color")
+    .simulate("change", { target: { name: "color", value: "black" } });
+  expect(wrapper.state("color")).toEqual("black");
+});
