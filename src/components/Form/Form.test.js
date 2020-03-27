@@ -35,22 +35,37 @@ test(" input fields are empty", () => {
   expect(initialFieldState).toBe("");
 });
 
-it("change the state after change the input value for the field", () => {
+describe("Form component", () => {
   const wrapper = shallow(<Form />);
-  wrapper
-    .find(".input-last")
-    .simulate("change", { target: { name: "lastName", value: "Roman" } });
-  expect(wrapper.state("lastName")).toEqual("Roman");
-  wrapper
-    .find(".input-first")
-    .simulate("change", { target: { name: "firstName", value: "Andreea" } });
-  expect(wrapper.state("firstName")).toEqual("Andreea");
-  wrapper
-    .find(".input-color")
-    .simulate("change", { target: { name: "color", value: "black" } });
-  expect(wrapper.state("color")).toEqual("black");
+
+  it("change the state after change the input value for the first name field", () => {
+    wrapper
+      .find(".input-first")
+      .simulate("change", { target: { name: "firstName", value: "Andreea" } });
+    expect(wrapper.state("firstName")).toEqual("Andreea");
+  });
+  it("change the state after change the input value for the last name field", () => {
+    wrapper
+      .find(".input-last")
+      .simulate("change", { target: { name: "lastName", value: "Roman" } });
+    expect(wrapper.state("lastName")).toEqual("Roman");
+  });
+  it("change the state after change the input value for the color", () => {
+    wrapper
+      .find(".input-color")
+      .simulate("change", { target: { name: "color", value: "black" } });
+    expect(wrapper.state("color")).toEqual("black");
+  });
 });
 
 it("data is passed to the text area", () => {
   const wrapper = shallow(<Form />);
+  const newState = {
+    firstName: "Andreea",
+    lastName: "Roman",
+    color: "black",
+    checked: false
+  };
+  wrapper.setState(newState);
+  expect(wrapper.find("TextArea").prop("passState")).toEqual(newState);
 });
