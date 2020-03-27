@@ -25,21 +25,13 @@ test("renders imput", () => {
   expect(formElement.length).toBe(2);
 });
 
-test("first name input field is empty", () => {
+test(" input fields are empty", () => {
   const wrapper = shallow(<Form />);
-  const initialFieldState = wrapper.state("firstName");
+  let initialFieldState = wrapper.state("firstName");
   expect(initialFieldState).toBe("");
-});
-
-test("last name input field is empty", () => {
-  const wrapper = shallow(<Form />);
-  const initialFieldState = wrapper.state("lastName");
+  initialFieldState = wrapper.state("lastName");
   expect(initialFieldState).toBe("");
-});
-
-test("radio button not clicked ", () => {
-  const wrapper = shallow(<Form />);
-  const initialFieldState = wrapper.state("color");
+  initialFieldState = wrapper.state("color");
   expect(initialFieldState).toBe("");
 });
 
@@ -57,4 +49,8 @@ it("change the state after change the input value for the field", () => {
     .find(".input-color")
     .simulate("change", { target: { name: "color", value: "black" } });
   expect(wrapper.state("color")).toEqual("black");
+});
+
+it("data is passed to the text area", () => {
+  const wrapper = shallow(<Form />);
 });
